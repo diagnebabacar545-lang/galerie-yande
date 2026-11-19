@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez l'univers artistique de Ngor Diouf à travers des œuvres inspirées par les visages, les femmes, l'enfance, la nature et les émotions. Galerie Yandé - L'art qui raconte une histoire.">
+    <title>Galerie Yandé | Ngor Diouf - Art Contemporain Africain</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.jpeg" alt="Galerie Yandé">
+            </a>
+            <button class="menu-toggle" aria-label="Ouvrir le menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="active">Accueil</a></li>
+                    <li><a href="artiste.html">L'artiste</a></li>
+                    <li><a href="collections.html">Collections</a></li>
+                    <li><a href="oeuvres.html">Œuvres</a></li>
+                    <li><a href="disponibles.html">Œuvres disponibles</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-image">
+                <!-- Placeholder for a major artwork -->
+                <img src="images/logo.jpeg" alt="Galerie Yandé" loading="lazy">
+            </div>
+            <div class="hero-content">
+                <h2 class="hero-title">GALERIE YANDÉ</h2>
+                <p class="hero-subtitle">L'art qui raconte une histoire.</p>
+                <p class="hero-text">Découvrez l'univers artistique de Ngor Diouf à travers des œuvres inspirées par les visages, les femmes, l'enfance, la nature et les émotions.</p>
+                <div class="hero-buttons">
+                    <a href="oeuvres.html" class="btn btn-primary">Découvrir les œuvres</a>
+                    <a href="artiste.html" class="btn btn-secondary">Découvrir l'artiste</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Œuvres à la une -->
+        <section class="featured-artworks section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Œuvres à la une</h2>
+                    <a href="oeuvres.html" class="link-more">Voir toutes les œuvres</a>
+                </div>
+                <div class="grid-3" id="featuredArtworksContainer">
+                    <!-- Artwork 1 -->
+                    <article class="artwork-card">
+                        <div class="artwork-image-wrapper">
+                            <img src="images/Regard%20d'Afrique.jpeg" alt="Regard d'Afrique" loading="lazy">
+                        </div>
+                        <div class="artwork-info">
+                            <h3 class="artwork-title">Regard d'Afrique</h3>
+                            <p class="artwork-artist">Ngor Diouf</p>
+                        </div>
+                    </article>
+                    <!-- Artwork 2 -->
+                    <article class="artwork-card">
+                        <div class="artwork-image-wrapper">
+                            <img src="images/WhatsApp%20Image%202026-10-10%20at%2018.20.07.jpeg" alt="Harmonie" loading="lazy">
+                        </div>
+                        <div class="artwork-info">
+                            <h3 class="artwork-title">Harmonie</h3>
+                            <p class="artwork-artist">Ngor Diouf</p>
+                        </div>
+                    </article>
+                    <!-- Artwork 3 -->
+                    <article class="artwork-card">
+                        <div class="artwork-image-wrapper">
+                            <img src="images/Sourire%20d'Enfance.jpeg" alt="Enfance et Joie" loading="lazy">
+                        </div>
+                        <div class="artwork-info">
+                            <h3 class="artwork-title">Sourire d'Enfance</h3>
+                            <p class="artwork-artist">Ngor Diouf</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Présentation de l'artiste -->
+        <section class="artist-preview section bg-offwhite">
+            <div class="container artist-preview-grid">
+                <div class="artist-preview-content">
+                    <h2>Ngor Diouf</h2>
+                    <p class="artist-intro">Artiste peintre contemporain, Ngor Diouf capture l'essence de l'émotion humaine à travers des toiles vibrantes. Ses pinceaux explorent l'héritage, la nature et la joie pure de l'enfance.</p>
+                    <a href="artiste.html" class="btn btn-outline">Lire la biographie complète</a>
+                </div>
+                <div class="artist-preview-image">
+                    <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Ngor Diouf dans son atelier" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- Collections -->
+        <section class="collections-preview section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Collections</h2>
+                    <a href="collections.html" class="link-more">Découvrir toutes les collections</a>
+                </div>
+                <div class="carousel-container">
+                    <div class="collection-list">
+                        <!-- Collection 1 -->
+                        <div class="collection-item">
+                            <img src="images/WhatsApp%20Image%202026-10-10%20at%2018.20.07.jpeg" alt="Femmes d'Afrique" loading="lazy">
+                            <div class="collection-overlay">
+                                <h3>Femmes d'Afrique</h3>
+                            </div>
+                        </div>
+                        <!-- Collection 2 -->
+                        <div class="collection-item">
+                            <img src="images/Regard%20d'Afrique.jpeg" alt="Visages & Portraits" loading="lazy">
+                            <div class="collection-overlay">
+                                <h3>Visages & Portraits</h3>
+                            </div>
+                        </div>
+                        <!-- Collection 3 -->
+                        <div class="collection-item">
+                            <img src="images/2.jpeg" alt="Couleurs & Émotions" loading="lazy">
+                            <div class="collection-overlay">
+                                <h3>Couleurs & Émotions</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="cta-section section bg-dark text-light">
+            <div class="container text-center">
+                <h2>Acquérir une œuvre de Ngor Diouf</h2>
+                <p>Parcourez notre sélection d'œuvres actuellement disponibles à la vente et ajoutez une pièce unique à votre collection.</p>
+                <div class="cta-buttons">
+                    <a href="disponibles.html" class="btn btn-primary-light">Voir les œuvres disponibles</a>
+                    <a href="contact.html" class="btn btn-outline-light">Nous contacter</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>GALERIE YANDÉ</h2>
+                    <p>L'art qui raconte une histoire.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="artiste.html">L'artiste</a></li>
+                        <li><a href="collections.html">Collections</a></li>
+                        <li><a href="oeuvres.html">Toutes les œuvres</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Informations</h3>
+                    <ul>
+                        <li><a href="disponibles.html">Œuvres disponibles</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="admin.html">Espace Artiste (Ngor Diouf)</a></li>
+                        <li><a href="#">Mentions légales</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p>contact@galerieyande.com</p>
+                    <p>+221 78 102 92 45</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/ngor_diouf" aria-label="Instagram">IG</a>
+                        <a href="#" aria-label="Facebook">FB</a>
+                        <a href="https://wa.me/221781029245" aria-label="WhatsApp">WA</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Galerie Yandé. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="artworks.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('featuredArtworksContainer');
+            if (!container) return;
+            const artworks = getArtworks();
+            if (artworks && artworks.length > 0) {
+                container.innerHTML = '';
+                // Prendre les 3 premières œuvres (les plus récentes ou phares)
+                artworks.slice(0, 3).forEach(art => {
+                    const article = document.createElement('article');
+                    article.className = 'artwork-card';
+                    article.style.cursor = 'pointer';
+                    article.onclick = () => window.location.href = `oeuvre-detail.html?id=${encodeURIComponent(art.id)}`;
+                    article.innerHTML = `
+                        <div class="artwork-image-wrapper">
+                            <img src="${art.image}" alt="${art.title}" loading="lazy" onerror="this.src='images/logo.jpeg'">
+                        </div>
+                        <div class="artwork-info">
+                            <h3 class="artwork-title">${art.title}</h3>
+                            <p class="artwork-artist">${art.artist || 'Ngor Diouf'}</p>
+                        </div>
+                    `;
+                    container.appendChild(article);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

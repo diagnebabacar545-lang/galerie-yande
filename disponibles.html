@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Œuvres Disponibles | Galerie Yandé - Ngor Diouf</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        .availability-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: #27ae60;
+            color: #fff;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 20px;
+            z-index: 2;
+        }
+        .btn-interest {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.6rem 1.2rem;
+            background-color: var(--c-black);
+            color: var(--c-ivory);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all var(--transition-fast);
+        }
+        .btn-interest:hover {
+            background-color: var(--c-gold);
+            color: var(--c-black);
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header scrolled">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.jpeg" alt="Galerie Yandé">
+            </a>
+            <button class="menu-toggle" aria-label="Ouvrir le menu">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="artiste.html">L'artiste</a></li>
+                    <li><a href="collections.html">Collections</a></li>
+                    <li><a href="oeuvres.html">Œuvres</a></li>
+                    <li><a href="disponibles.html" class="active">Œuvres disponibles</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container text-center">
+                <h1 class="page-title">Œuvres Disponibles à l'Acquisition</h1>
+                <p>Découvrez la sélection des œuvres de Ngor Diouf actuellement disponibles pour les collectionneurs et passionnés.</p>
+            </div>
+        </section>
+
+        <section class="section pt-0">
+            <div class="container">
+                <div id="disponiblesContainer" class="grid-3">
+                    <!-- Les œuvres disponibles seront injectées ici dynamiquement -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>GALERIE YANDÉ</h2>
+                    <p>L'art qui raconte une histoire.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="artiste.html">L'artiste</a></li>
+                        <li><a href="collections.html">Collections</a></li>
+                        <li><a href="oeuvres.html">Toutes les œuvres</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Informations</h3>
+                    <ul>
+                        <li><a href="disponibles.html">Œuvres disponibles</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="admin.html">Espace Artiste (Ngor Diouf)</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p>contact@galerieyande.com</p>
+                    <p>+221 78 102 92 45</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/ngor_diouf" aria-label="Instagram">IG</a>
+                        <a href="https://wa.me/221781029245" aria-label="WhatsApp">WA</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Galerie Yandé. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="artworks.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const artworks = getArtworks();
+            const container = document.getElementById('disponiblesContainer');
+            const disponibles = artworks.filter(a => a.status === 'disponible');
+
+            if (disponibles.length === 0) {
+                container.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 4rem 1rem;">
+                        <h3>Toutes les œuvres actuelles ont trouvé acquéreur.</h3>
+                        <p style="color: #666; margin-top: 1rem;">Revenez très bientôt ou contactez directement Ngor Diouf pour une commande sur mesure.</p>
+                        <a href="contact.html" class="btn btn-primary" style="margin-top: 1.5rem; display: inline-block;">Contacter l'artiste</a>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = '';
+            disponibles.forEach(art => {
+                const article = document.createElement('article');
+                article.className = 'artwork-card';
+                article.style.position = 'relative';
+
+                const waMessage = encodeURIComponent(`Bonjour, je suis intéressé(e) par l'œuvre '${art.title}' de Ngor Diouf.`);
+
+                article.innerHTML = `
+                    <div class="availability-badge">Disponible</div>
+                    <div class="artwork-image-wrapper" onclick="window.location.href='oeuvre-detail.html?id=${encodeURIComponent(art.id)}'" style="cursor: pointer;">
+                        <img src="${art.image}" alt="${art.title}" loading="lazy" onerror="this.src='images/logo.jpeg'">
+                    </div>
+                    <div class="artwork-info text-center">
+                        <h3 class="artwork-title" style="cursor: pointer;" onclick="window.location.href='oeuvre-detail.html?id=${encodeURIComponent(art.id)}'">${art.title}</h3>
+                        <p class="artwork-artist">${art.artist || 'Ngor Diouf'}</p>
+                        <p style="font-size: 0.85rem; color: #777; margin-top: 0.3rem;">${art.dimensions || ''} ${art.dimensions && art.technique ? '•' : ''} ${art.technique || ''}</p>
+                        <a href="https://wa.me/221781029245?text=${waMessage}" target="_blank" class="btn-interest">💬 Je suis intéressé(e)</a>
+                    </div>
+                `;
+                container.appendChild(article);
+            });
+        });
+    </script>
+</body>
+</html>

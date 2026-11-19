@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toutes les Œuvres | Galerie Yandé - Ngor Diouf</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        .filter-btn.active {
+            background-color: var(--c-black);
+            color: var(--c-ivory);
+            border-color: var(--c-black);
+        }
+        .badge-card {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 20px;
+            z-index: 2;
+        }
+        .badge-card.disponible {
+            background-color: #27ae60;
+            color: #fff;
+        }
+        .badge-card.vendue {
+            background-color: rgba(0,0,0,0.65);
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.jpeg" alt="Galerie Yandé">
+            </a>
+            <button class="menu-toggle" aria-label="Ouvrir le menu">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="artiste.html">L'artiste</a></li>
+                    <li><a href="collections.html">Collections</a></li>
+                    <li><a href="oeuvres.html" class="active">Œuvres</a></li>
+                    <li><a href="disponibles.html">Œuvres disponibles</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container text-center">
+                <h1 class="page-title">Galerie des Œuvres</h1>
+                <p>Découvrez l'ensemble de la collection de l'artiste peintre Ngor Diouf.</p>
+            </div>
+        </section>
+
+        <section class="section pt-0">
+            <div class="container">
+                <!-- Filtres dynamiques -->
+                <div id="filtersContainer" class="filters" style="margin-bottom: 3rem; display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center;">
+                    <!-- Les boutons de filtres seront injectés ici -->
+                </div>
+
+                <!-- Grille dynamique des œuvres -->
+                <div id="artworksContainer" class="grid-3">
+                    <!-- Les œuvres seront injectées ici -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>GALERIE YANDÉ</h2>
+                    <p>L'art qui raconte une histoire.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="artiste.html">L'artiste</a></li>
+                        <li><a href="collections.html">Collections</a></li>
+                        <li><a href="oeuvres.html">Toutes les œuvres</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Informations</h3>
+                    <ul>
+                        <li><a href="disponibles.html">Œuvres disponibles</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="admin.html">Espace Artiste (Ngor Diouf)</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p>contact@galerieyande.com</p>
+                    <p>+221 78 102 92 45</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/ngor_diouf" aria-label="Instagram">IG</a>
+                        <a href="https://wa.me/221781029245" aria-label="WhatsApp">WA</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Galerie Yandé. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="artworks.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const artworks = getArtworks();
+            const container = document.getElementById('artworksContainer');
+            const filtersContainer = document.getElementById('filtersContainer');
+
+            // Récupérer la liste unique des collections
+            const collections = ['Toutes', ...new Set(artworks.map(a => a.collection).filter(Boolean))];
+            let activeFilter = 'Toutes';
+
+            function renderFilters() {
+                filtersContainer.innerHTML = '';
+                collections.forEach(col => {
+                    const btn = document.createElement('button');
+                    btn.className = `btn ${col === activeFilter ? 'btn-primary active' : 'btn-outline'}`;
+                    btn.textContent = col;
+                    btn.style.margin = '0.2rem';
+                    btn.addEventListener('click', () => {
+                        activeFilter = col;
+                        renderFilters();
+                        renderArtworks();
+                    });
+                    filtersContainer.appendChild(btn);
+                });
+            }
+
+            function renderArtworks() {
+                container.innerHTML = '';
+                const filtered = activeFilter === 'Toutes' 
+                    ? artworks 
+                    : artworks.filter(a => a.collection === activeFilter);
+
+                if (filtered.length === 0) {
+                    container.innerHTML = `
+                        <div style="grid-column: 1/-1; text-align: center; padding: 4rem 1rem; color: #777;">
+                            <p style="font-size: 1.2rem;">Aucune œuvre dans cette collection pour le moment.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                filtered.forEach(art => {
+                    const isDispo = art.status === 'disponible';
+                    const article = document.createElement('article');
+                    article.className = 'artwork-card';
+                    article.style.position = 'relative';
+                    article.style.cursor = 'pointer';
+                    article.onclick = () => window.location.href = `oeuvre-detail.html?id=${encodeURIComponent(art.id)}`;
+
+                    article.innerHTML = `
+                        <span class="badge-card ${isDispo ? 'disponible' : 'vendue'}">
+                            ${isDispo ? 'Disponible' : 'Vendue'}
+                        </span>
+                        <div class="artwork-image-wrapper">
+                            <img src="${art.image}" alt="${art.title}" loading="lazy" onerror="this.src='images/logo.jpeg'">
+                        </div>
+                        <div class="artwork-info text-center">
+                            <h3 class="artwork-title">${art.title}</h3>
+                            <p class="artwork-artist">${art.artist || 'Ngor Diouf'}</p>
+                            <p class="artwork-meta" style="font-size: 0.9rem; margin-top: 0.5rem; color: #666;">
+                                ${art.collection || 'Art Contemporain'} | ${isDispo ? 'Disponible' : 'Collection privée (Vendue)'}
+                            </p>
+                        </div>
+                    `;
+                    container.appendChild(article);
+                });
+            }
+
+            renderFilters();
+            renderArtworks();
+        });
+    </script>
+</body>
+</html>

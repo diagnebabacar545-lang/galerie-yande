@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Galerie Yandé - Ngor Diouf</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        .contact-info {
+            padding-right: 2rem;
+        }
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        .contact-detail {
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--c-gold);
+            line-height: 1;
+        }
+        .contact-text p {
+            margin-bottom: 0.2rem;
+        }
+        .contact-text a {
+            color: var(--c-anthracite);
+            font-weight: 500;
+        }
+        .contact-text a:hover {
+            color: var(--c-brown-subtle);
+        }
+        
+        .contact-form {
+            background-color: var(--c-offwhite);
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--c-anthracite);
+        }
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid rgba(0,0,0,0.1);
+            background-color: transparent;
+            font-family: inherit;
+            transition: border-color var(--transition-fast);
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--c-brown-subtle);
+        }
+        textarea.form-control {
+            resize: vertical;
+            min-height: 150px;
+        }
+        .social-large {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .social-large a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid var(--c-anthracite);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        .social-large a:hover {
+            background-color: var(--c-anthracite);
+            color: var(--c-offwhite);
+        }
+        .social-large a.btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+            border-color: #25D366;
+        }
+        .social-large a.btn-whatsapp:hover {
+            background-color: #1ebe58;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-form {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header scrolled">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.jpeg" alt="Galerie Yandé">
+            </a>
+            <button class="menu-toggle" aria-label="Ouvrir le menu">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="artiste.html">L'artiste</a></li>
+                    <li><a href="collections.html">Collections</a></li>
+                    <li><a href="oeuvres.html">Œuvres</a></li>
+                    <li><a href="disponibles.html">Œuvres disponibles</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container text-center">
+                <h1 class="page-title">Une œuvre vous intéresse ? Parlons-en.</h1>
+                <p>N'hésitez pas à nous contacter pour toute demande d'acquisition, de collaboration ou d'information.</p>
+            </div>
+        </section>
+
+        <section class="section pt-0">
+            <div class="container contact-grid">
+                
+                <div class="contact-info">
+                    <h3>Contactez l'artiste</h3>
+                    <p style="margin-bottom: 2rem;">Nous sommes à votre disposition pour vous accompagner dans la découverte et l'acquisition des œuvres de Ngor Diouf.</p>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-text">
+                            <p>Téléphone / WhatsApp</p>
+                            <a href="tel:+221781029245">+221 78 102 92 45</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-text">
+                            <p>Email</p>
+                            <a href="mailto:contact@galerieyande.com">contact@galerieyande.com</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="contact-icon">📸</div>
+                        <div class="contact-text">
+                            <p>Instagram</p>
+                            <a href="https://instagram.com/ngor_diouf" target="_blank">@ngor_diouf</a>
+                        </div>
+                    </div>
+
+                    <div class="social-large">
+                        <a href="https://wa.me/221781029245" target="_blank" class="btn-whatsapp">WhatsApp</a>
+                        <a href="https://instagram.com/ngor_diouf" target="_blank">Instagram</a>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Nom complet *</label>
+                            <input type="text" id="name" name="name" class="form-control" required placeholder="Votre nom">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Adresse email *</label>
+                            <input type="email" id="email" name="email" class="form-control" required placeholder="Votre adresse email">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Sujet</label>
+                            <select id="subject" name="subject" class="form-control">
+                                <option value="acquisition">Demande d'acquisition</option>
+                                <option value="info">Demande d'information</option>
+                                <option value="collab">Proposition de collaboration</option>
+                                <option value="other">Autre</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" class="form-control" required placeholder="Comment pouvons-nous vous aider ?"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer le message</button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>GALERIE YANDÉ</h2>
+                    <p>L'art qui raconte une histoire.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="artiste.html">L'artiste</a></li>
+                        <li><a href="collections.html">Collections</a></li>
+                        <li><a href="oeuvres.html">Toutes les œuvres</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Informations</h3>
+                    <ul>
+                        <li><a href="disponibles.html">Œuvres disponibles</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="admin.html">Espace Artiste (Ngor Diouf)</a></li>
+                        <li><a href="#">Mentions légales</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p>contact@galerieyande.com</p>
+                    <p>+221 78 102 92 45</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/ngor_diouf" aria-label="Instagram">IG</a>
+                        <a href="https://wa.me/221781029245" aria-label="WhatsApp">WA</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Galerie Yandé. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

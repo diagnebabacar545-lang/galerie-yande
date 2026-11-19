@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détail de l'Œuvre | Galerie Yandé - Ngor Diouf</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        .artwork-detail-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        .artwork-detail-image {
+            position: relative;
+        }
+        .artwork-detail-image img {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            background: #f8f8f8;
+        }
+        .artwork-detail-info h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.3rem;
+            line-height: 1.2;
+        }
+        .artwork-detail-artist {
+            font-size: 1.1rem;
+            color: var(--c-brown-subtle);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+        .artwork-description {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 2rem;
+        }
+        .artwork-specs {
+            margin: 2rem 0;
+            padding: 1.5rem 0;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        .artwork-specs p {
+            margin-bottom: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        .artwork-specs span.label {
+            font-weight: 500;
+            color: var(--c-anthracite);
+        }
+        .artwork-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        .btn-wa-direct {
+            background-color: #25D366;
+            color: #fff;
+            padding: 0.9rem 1.8rem;
+            border-radius: 6px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        .btn-wa-direct:hover {
+            background-color: #128C7E;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+        @media (max-width: 768px) {
+            .artwork-detail-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header scrolled">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.jpeg" alt="Galerie Yandé">
+            </a>
+            <button class="menu-toggle" aria-label="Ouvrir le menu">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="artiste.html">L'artiste</a></li>
+                    <li><a href="collections.html">Collections</a></li>
+                    <li><a href="oeuvres.html" class="active">Œuvres</a></li>
+                    <li><a href="disponibles.html">Œuvres disponibles</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main style="padding-top: 8rem;">
+        <section class="section">
+            <div class="container">
+                <div style="margin-bottom: 2rem;">
+                    <a href="oeuvres.html" style="color: #666; font-size: 0.95rem; text-decoration: underline;">← Retour à la galerie des œuvres</a>
+                </div>
+
+                <div class="artwork-detail-grid">
+                    <div class="artwork-detail-image">
+                        <img id="detailImg" src="images/logo.jpeg" alt="Œuvre">
+                    </div>
+                    <div class="artwork-detail-info">
+                        <h1 id="detailTitle">Chargement...</h1>
+                        <p class="artwork-detail-artist" id="detailArtist">Ngor Diouf</p>
+                        
+                        <p class="artwork-description" id="detailDesc">
+                            ...
+                        </p>
+
+                        <div class="artwork-specs">
+                            <p><span class="label">Collection</span> <span id="detailCollection">-</span></p>
+                            <p><span class="label">Technique</span> <span id="detailTechnique">-</span></p>
+                            <p><span class="label">Dimensions</span> <span id="detailDimensions">-</span></p>
+                            <p><span class="label">Année</span> <span id="detailYear">-</span></p>
+                            <p><span class="label">Statut</span> <span id="detailStatus" style="font-weight: 600;">-</span></p>
+                        </div>
+
+                        <div class="artwork-actions">
+                            <a id="btnDetailWhatsApp" href="#" target="_blank" class="btn-wa-direct">
+                                💬 Échanger sur WhatsApp
+                            </a>
+                            <a id="btnDetailContact" href="contact.html" class="btn btn-outline">
+                                Formulaire de contact
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" style="padding: 3rem 0; margin-top: 4rem;">
+        <div class="container text-center">
+            <p>&copy; 2026 Galerie Yandé - Ngor Diouf. Tous droits réservés.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+                <a href="admin.html" style="color: #888; text-decoration: underline;">Espace Artiste (Gestion)</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="artworks.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const artworkId = params.get('id');
+
+            const allArtworks = getArtworks();
+            let art = null;
+
+            if (artworkId) {
+                art = allArtworks.find(a => a.id === artworkId);
+            }
+
+            // Fallback si non trouvé
+            if (!art && allArtworks.length > 0) {
+                art = allArtworks[0];
+            }
+
+            if (!art) {
+                document.getElementById('detailTitle').textContent = "Œuvre introuvable";
+                return;
+            }
+
+            // Mettre à jour la page
+            document.title = `${art.title} | Galerie Yandé - Ngor Diouf`;
+            document.getElementById('detailTitle').textContent = art.title;
+            document.getElementById('detailArtist').textContent = art.artist || 'Ngor Diouf';
+            document.getElementById('detailImg').src = art.image || 'images/logo.jpeg';
+            document.getElementById('detailImg').alt = art.title;
+
+            document.getElementById('detailDesc').textContent = art.description || "Une création contemporaine signée Ngor Diouf, célébrant l'art, les émotions et l'héritage culturel.";
+            document.getElementById('detailCollection').textContent = art.collection || 'Collection Contemporaine';
+            document.getElementById('detailTechnique').textContent = art.technique || 'Acrylique sur toile';
+            document.getElementById('detailDimensions').textContent = art.dimensions || 'Sur demande';
+            document.getElementById('detailYear').textContent = art.year || '2026';
+
+            const statusEl = document.getElementById('detailStatus');
+            const isDispo = art.status === 'disponible';
+            statusEl.textContent = isDispo ? '● Disponible à l\'acquisition' : '● Collection privée (Vendue)';
+            statusEl.style.color = isDispo ? '#27ae60' : '#888';
+
+            // Boutons contact & WhatsApp
+            const waMsg = encodeURIComponent(`Bonjour Ngor Diouf, je suis intéressé(e) par votre œuvre "${art.title}" vue sur Galerie Yandé.`);
+            document.getElementById('btnDetailWhatsApp').href = `https://wa.me/221781029245?text=${waMsg}`;
+            document.getElementById('btnDetailContact').href = `contact.html?oeuvre=${encodeURIComponent(art.title)}`;
+        });
+    </script>
+</body>
+</html>

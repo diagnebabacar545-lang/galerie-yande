@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections | Galerie Yandé - Ngor Diouf</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        .collection-showcase {
+            margin-bottom: 6rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .collection-showcase:nth-child(even) {
+            direction: rtl;
+        }
+        .collection-showcase:nth-child(even) > * {
+            direction: ltr;
+        }
+        .collection-image {
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .collection-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+        .collection-image:hover img {
+            transform: scale(1.05);
+        }
+        .collection-details h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .collection-details p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        @media (max-width: 992px) {
+            .collection-showcase {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                direction: ltr !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header scrolled">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.jpeg" alt="Galerie Yandé">
+            </a>
+            <button class="menu-toggle" aria-label="Ouvrir le menu">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="artiste.html">L'artiste</a></li>
+                    <li><a href="collections.html" class="active">Collections</a></li>
+                    <li><a href="oeuvres.html">Œuvres</a></li>
+                    <li><a href="disponibles.html">Œuvres disponibles</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container text-center">
+                <h1 class="page-title">Les Collections</h1>
+                <p>Explorez les grandes thématiques qui inspirent l'œuvre de Ngor Diouf.</p>
+            </div>
+        </section>
+
+        <section class="section pt-0">
+            <div class="container">
+                
+                <!-- Collection 1 -->
+                <div class="collection-showcase">
+                    <div class="collection-image">
+                        <a href="oeuvres.html">
+                            <img src="images/WhatsApp%20Image%202026-10-10%20at%2018.20.07.jpeg" alt="Femmes d'Afrique" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="collection-details">
+                        <h2>1. Femmes d'Afrique</h2>
+                        <p>Une célébration de la force, de la beauté et de l'élégance de la femme africaine. À travers des regards profonds et des parures colorées, cette collection rend un vibrant hommage aux piliers de la société.</p>
+                        <a href="oeuvres.html" class="btn btn-primary">Découvrir la collection</a>
+                    </div>
+                </div>
+
+                <!-- Collection 2 -->
+                <div class="collection-showcase">
+                    <div class="collection-image">
+                        <a href="oeuvres.html">
+                            <img src="images/Regard%20d'Afrique.jpeg" alt="Visages & Portraits" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="collection-details">
+                        <h2>2. Visages & Portraits</h2>
+                        <p>Capturer l'âme au-delà de l'apparence. Ces portraits explorent les expressions, les silences et les histoires non dites cachées derrière chaque regard peint par Ngor Diouf.</p>
+                        <a href="oeuvres.html" class="btn btn-primary">Découvrir la collection</a>
+                    </div>
+                </div>
+
+                <!-- Collection 3 -->
+                <div class="collection-showcase">
+                    <div class="collection-image">
+                        <a href="oeuvres.html">
+                            <img src="images/5.jpeg" alt="Enfance & Joie" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="collection-details">
+                        <h2>3. Enfance & Joie</h2>
+                        <p>L'innocence, le rire et le bonheur pur se dégagent de ces toiles. Une plongée rafraîchissante dans la candeur de l'enfance et les moments de partage spontanés.</p>
+                        <a href="oeuvres.html" class="btn btn-primary">Découvrir la collection</a>
+                    </div>
+                </div>
+
+                <!-- Collection 4 -->
+                <div class="collection-showcase">
+                    <div class="collection-image">
+                        <a href="oeuvres.html">
+                            <img src="images/7.jpeg" alt="Nature & Héritage" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="collection-details">
+                        <h2>4. Nature & Héritage</h2>
+                        <p>L'ancrage profond à la terre, l'importance des racines et du majestueux baobab. Cette série illustre la transmission des valeurs et la relation harmonieuse avec l'environnement.</p>
+                        <a href="oeuvres.html" class="btn btn-primary">Découvrir la collection</a>
+                    </div>
+                </div>
+
+                <!-- Collection 5 -->
+                <div class="collection-showcase">
+                    <div class="collection-image">
+                        <a href="oeuvres.html">
+                            <img src="images/2.jpeg" alt="Couleurs & Émotions" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="collection-details">
+                        <h2>5. Couleurs & Émotions</h2>
+                        <p>Une explosion de nuances et de techniques, notamment le pointillisme. L'artiste laisse ici la couleur s'exprimer librement pour traduire des émotions intérieures intenses et abstraites.</p>
+                        <a href="oeuvres.html" class="btn btn-primary">Découvrir la collection</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>GALERIE YANDÉ</h2>
+                    <p>L'art qui raconte une histoire.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="artiste.html">L'artiste</a></li>
+                        <li><a href="collections.html">Collections</a></li>
+                        <li><a href="oeuvres.html">Toutes les œuvres</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Informations</h3>
+                    <ul>
+                        <li><a href="disponibles.html">Œuvres disponibles</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="admin.html">Espace Artiste (Ngor Diouf)</a></li>
+                        <li><a href="#">Mentions légales</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p>contact@galerieyande.com</p>
+                    <p>+221 78 102 92 45</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/ngor_diouf" aria-label="Instagram">IG</a>
+                        <a href="https://wa.me/221781029245" aria-label="WhatsApp">WA</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Galerie Yandé. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
