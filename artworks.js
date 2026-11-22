@@ -79,8 +79,110 @@ const DEFAULT_ARTWORKS = [
 ];
 
 const STORAGE_KEY = 'galerie_yande_artworks_v1';
+const COLLECTIONS_STORAGE_KEY = 'galerie_yande_collections_v1';
 const ADMIN_PASS_KEY = 'galerie_yande_admin_pass';
 const DEFAULT_PASS = 'ngor2026';
+
+const DEFAULT_COLLECTIONS = [
+    {
+        id: "col-1",
+        title: "Femmes d'Afrique",
+        image: "images/WhatsApp Image 2026-10-10 at 18.20.07.jpeg",
+        description: "Une célébration de la force, de la beauté et de l'élégance de la femme africaine. À travers des regards profonds et des parures colorées, cette collection rend un vibrant hommage aux piliers de la société."
+    },
+    {
+        id: "col-2",
+        title: "Visages & Portraits",
+        image: "images/Regard d'Afrique.jpeg",
+        description: "Capturer l'âme au-delà de l'apparence. Ces portraits explorent les expressions, les silences et les histoires non dites cachées derrière chaque regard peint par Ngor Diouf."
+    },
+    {
+        id: "col-3",
+        title: "Enfance & Joie",
+        image: "images/Sourire d'Enfance.jpeg",
+        description: "L'innocence, le rire et le bonheur pur se dégagent de ces toiles. Une plongée rafraîchissante dans la candeur de l'enfance et les moments de partage spontanés."
+    },
+    {
+        id: "col-4",
+        title: "Nature & Héritage",
+        image: "images/GOUYE GUI",
+        description: "L'ancrage profond à la terre, l'importance des racines et du majestueux baobab. Cette série illustre la transmission des valeurs et la relation harmonieuse avec l'environnement."
+    },
+    {
+        id: "col-5",
+        title: "Couleurs & Émotions",
+        image: "images/VITAMIN WATERMELON",
+        description: "Une explosion de nuances et de techniques, notamment le pointillisme. L'artiste laisse ici la couleur s'exprimer librement pour traduire des émotions intérieures intenses et abstraites."
+    }
+];
+
+// Récupérer toutes les collections
+function getCollections() {
+    try {
+        const stored = localStorage.getItem(COLLECTIONS_STORAGE_KEY);
+        if (stored) {
+            const parsed = JSON.parse(stored);
+            if (Array.isArray(parsed) && parsed.length > 0) {
+                return parsed;
+            }
+        }
+    } catch (e) {
+        console.error("Erreur lecture localStorage collections:", e);
+    }
+    saveCollections(DEFAULT_COLLECTIONS);
+    return DEFAULT_COLLECTIONS;
+}
+
+// Sauvegarder les collections
+function saveCollections(collections) {
+    try {
+        localStorage.setItem(COLLECTIONS_STORAGE_KEY, JSON.stringify(collections));
+        return true;
+    } catch (e) {
+        console.error("Erreur sauvegarde localStorage collections:", e);
+        return false;
+    }
+}
+
+// Récupérer une collection par son ID
+function getCollectionById(id) {
+    const list = getCollections();
+    return list.find(item => item.id === id) || null;
+}
+
+// Ajouter une nouvelle collection
+function addCollection(data) {
+    const list = getCollections();
+    const newCollection = {
+        id: 'col-' + Date.now(),
+        title: data.title || 'Nouvelle Collection',
+        image: data.image || 'images/logo.jpeg',
+        description: data.description || ''
+    };
+    list.push(newCollection);
+    saveCollections(list);
+    return newCollection;
+}
+
+// Mettre à jour une collection (titre, image, description)
+function updateCollection(id, updatedFields) {
+    const list = getCollections();
+    const index = list.findIndex(item => item.id === id);
+    if (index !== -1) {
+        list[index] = { ...list[index], ...updatedFields };
+        saveCollections(list);
+        return list[index];
+    }
+    return null;
+}
+
+// Supprimer une collection
+function deleteCollection(id) {
+    let list = getCollections();
+    list = list.filter(item => item.id !== id);
+    saveCollections(list);
+    return list;
+}
 
 // Récupérer toutes les œuvres
 function getArtworks() {
@@ -208,6 +310,17 @@ function getAdminPassword() {
 
 function setAdminPassword(newPass) {
     localStorage.setItem(ADMIN_PASS_KEY, newPass);
+}
+
+function changeAdminPassword(oldPass, newPass) {
+    if (oldPass !== getAdminPassword()) {
+        return { success: false, message: "L'ancien mot de passe est incorrect." };
+    }
+    if (!newPass || newPass.trim().length < 4) {
+        return { success: false, message: "Le nouveau mot de passe doit comporter au moins 4 caractères." };
+    }
+    setAdminPassword(newPass.trim());
+    return { success: true, message: "Mot de passe modifié avec succès !" };
 }
 
 function isAdminLoggedIn() {

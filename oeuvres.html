@@ -131,6 +131,13 @@
             const collections = ['Toutes', ...new Set(artworks.map(a => a.collection).filter(Boolean))];
             let activeFilter = 'Toutes';
 
+            // Vérifier si un filtre de collection est passé dans l'URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const initialCol = urlParams.get('collection');
+            if (initialCol && collections.includes(initialCol)) {
+                activeFilter = initialCol;
+            }
+
             function renderFilters() {
                 filtersContainer.innerHTML = '';
                 collections.forEach(col => {

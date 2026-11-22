@@ -103,7 +103,7 @@
                     <a href="artiste.html" class="btn btn-outline">Lire la biographie complète</a>
                 </div>
                 <div class="artist-preview-image">
-                    <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Ngor Diouf dans son atelier" loading="lazy">
+                    <img src="images/photo%20ngor.jpeg" alt="Ngor Diouf - Artiste Peintre" loading="lazy">
                 </div>
             </div>
         </section>
@@ -116,28 +116,8 @@
                     <a href="collections.html" class="link-more">Découvrir toutes les collections</a>
                 </div>
                 <div class="carousel-container">
-                    <div class="collection-list">
-                        <!-- Collection 1 -->
-                        <div class="collection-item">
-                            <img src="images/WhatsApp%20Image%202026-10-10%20at%2018.20.07.jpeg" alt="Femmes d'Afrique" loading="lazy">
-                            <div class="collection-overlay">
-                                <h3>Femmes d'Afrique</h3>
-                            </div>
-                        </div>
-                        <!-- Collection 2 -->
-                        <div class="collection-item">
-                            <img src="images/Regard%20d'Afrique.jpeg" alt="Visages & Portraits" loading="lazy">
-                            <div class="collection-overlay">
-                                <h3>Visages & Portraits</h3>
-                            </div>
-                        </div>
-                        <!-- Collection 3 -->
-                        <div class="collection-item">
-                            <img src="images/2.jpeg" alt="Couleurs & Émotions" loading="lazy">
-                            <div class="collection-overlay">
-                                <h3>Couleurs & Émotions</h3>
-                            </div>
-                        </div>
+                    <div class="collection-list" id="homeCollectionsList">
+                        <!-- Les collections dynamiques seront injectées ici -->
                     </div>
                 </div>
             </div>
@@ -202,28 +182,51 @@
     <script src="script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Œuvres à la une
             const container = document.getElementById('featuredArtworksContainer');
-            if (!container) return;
-            const artworks = getArtworks();
-            if (artworks && artworks.length > 0) {
-                container.innerHTML = '';
-                // Prendre les 3 premières œuvres (les plus récentes ou phares)
-                artworks.slice(0, 3).forEach(art => {
-                    const article = document.createElement('article');
-                    article.className = 'artwork-card';
-                    article.style.cursor = 'pointer';
-                    article.onclick = () => window.location.href = `oeuvre-detail.html?id=${encodeURIComponent(art.id)}`;
-                    article.innerHTML = `
-                        <div class="artwork-image-wrapper">
-                            <img src="${art.image}" alt="${art.title}" loading="lazy" onerror="this.src='images/logo.jpeg'">
-                        </div>
-                        <div class="artwork-info">
-                            <h3 class="artwork-title">${art.title}</h3>
-                            <p class="artwork-artist">${art.artist || 'Ngor Diouf'}</p>
-                        </div>
-                    `;
-                    container.appendChild(article);
-                });
+            if (container) {
+                const artworks = getArtworks();
+                if (artworks && artworks.length > 0) {
+                    container.innerHTML = '';
+                    artworks.slice(0, 3).forEach(art => {
+                        const article = document.createElement('article');
+                        article.className = 'artwork-card';
+                        article.style.cursor = 'pointer';
+                        article.onclick = () => window.location.href = `oeuvre-detail.html?id=${encodeURIComponent(art.id)}`;
+                        article.innerHTML = `
+                            <div class="artwork-image-wrapper">
+                                <img src="${art.image}" alt="${art.title}" loading="lazy" onerror="this.src='images/logo.jpeg'">
+                            </div>
+                            <div class="artwork-info">
+                                <h3 class="artwork-title">${art.title}</h3>
+                                <p class="artwork-artist">${art.artist || 'Ngor Diouf'}</p>
+                            </div>
+                        `;
+                        container.appendChild(article);
+                    });
+                }
+            }
+
+            // Collections à la une
+            const colContainer = document.getElementById('homeCollectionsList');
+            if (colContainer) {
+                const collections = getCollections();
+                if (collections && collections.length > 0) {
+                    colContainer.innerHTML = '';
+                    collections.slice(0, 3).forEach(col => {
+                        const item = document.createElement('div');
+                        item.className = 'collection-item';
+                        item.style.cursor = 'pointer';
+                        item.onclick = () => window.location.href = 'collections.html';
+                        item.innerHTML = `
+                            <img src="${col.image}" alt="${col.title}" loading="lazy" onerror="this.src='images/logo.jpeg'">
+                            <div class="collection-overlay">
+                                <h3>${col.title}</h3>
+                            </div>
+                        `;
+                        colContainer.appendChild(item);
+                    });
+                }
             }
         });
     </script>

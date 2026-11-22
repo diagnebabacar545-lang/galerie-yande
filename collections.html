@@ -24,22 +24,26 @@
             position: relative;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-radius: 6px;
         }
         .collection-image img {
             width: 100%;
-            height: auto;
+            height: 420px;
             object-fit: cover;
             transition: transform var(--transition-slow);
+            display: block;
         }
         .collection-image:hover img {
             transform: scale(1.05);
         }
         .collection-details h2 {
-            font-size: 3rem;
+            font-size: 2.8rem;
             margin-bottom: 1rem;
+            font-family: var(--font-heading);
+            color: var(--c-black);
         }
         .collection-details p {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             margin-bottom: 2rem;
             color: #555;
             line-height: 1.8;
@@ -48,14 +52,21 @@
         @media (max-width: 992px) {
             .collection-showcase {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 2.5rem;
                 direction: ltr !important;
+                margin-bottom: 4rem;
+            }
+            .collection-image img {
+                height: 320px;
+            }
+            .collection-details h2 {
+                font-size: 2.2rem;
             }
         }
     </style>
 </head>
 <body>
-    <header class="site-header scrolled">
+    <header class="site-header">
         <div class="header-container">
             <a href="index.html" class="logo">
                 <img src="images/logo.jpeg" alt="Galerie Yandé">
@@ -85,75 +96,75 @@
         </section>
 
         <section class="section pt-0">
-            <div class="container">
+            <div class="container" id="collectionsListContainer">
                 
                 <!-- Collection 1 -->
                 <div class="collection-showcase">
                     <div class="collection-image">
-                        <a href="oeuvres.html">
+                        <a href="oeuvres.html?collection=Femmes%20d'Afrique">
                             <img src="images/WhatsApp%20Image%202026-10-10%20at%2018.20.07.jpeg" alt="Femmes d'Afrique" loading="lazy">
                         </a>
                     </div>
                     <div class="collection-details">
                         <h2>1. Femmes d'Afrique</h2>
                         <p>Une célébration de la force, de la beauté et de l'élégance de la femme africaine. À travers des regards profonds et des parures colorées, cette collection rend un vibrant hommage aux piliers de la société.</p>
-                        <a href="oeuvres.html" class="btn btn-primary">Découvrir la collection</a>
+                        <a href="oeuvres.html?collection=Femmes%20d'Afrique" class="btn btn-primary">Découvrir les œuvres</a>
                     </div>
                 </div>
 
                 <!-- Collection 2 -->
                 <div class="collection-showcase">
                     <div class="collection-image">
-                        <a href="oeuvres.html">
+                        <a href="oeuvres.html?collection=Visages%20%26%20Portraits">
                             <img src="images/Regard%20d'Afrique.jpeg" alt="Visages & Portraits" loading="lazy">
                         </a>
                     </div>
                     <div class="collection-details">
                         <h2>2. Visages & Portraits</h2>
                         <p>Capturer l'âme au-delà de l'apparence. Ces portraits explorent les expressions, les silences et les histoires non dites cachées derrière chaque regard peint par Ngor Diouf.</p>
-                        <a href="oeuvres.html" class="btn btn-primary">Découvrir la collection</a>
+                        <a href="oeuvres.html?collection=Visages%20%26%20Portraits" class="btn btn-primary">Découvrir les œuvres</a>
                     </div>
                 </div>
 
                 <!-- Collection 3 -->
                 <div class="collection-showcase">
                     <div class="collection-image">
-                        <a href="oeuvres.html">
-                            <img src="images/5.jpeg" alt="Enfance & Joie" loading="lazy">
+                        <a href="oeuvres.html?collection=Enfance%20%26%20Joie">
+                            <img src="images/Sourire%20d'Enfance.jpeg" alt="Enfance & Joie" loading="lazy">
                         </a>
                     </div>
                     <div class="collection-details">
                         <h2>3. Enfance & Joie</h2>
                         <p>L'innocence, le rire et le bonheur pur se dégagent de ces toiles. Une plongée rafraîchissante dans la candeur de l'enfance et les moments de partage spontanés.</p>
-                        <a href="oeuvres.html" class="btn btn-primary">Découvrir la collection</a>
+                        <a href="oeuvres.html?collection=Enfance%20%26%20Joie" class="btn btn-primary">Découvrir les œuvres</a>
                     </div>
                 </div>
 
                 <!-- Collection 4 -->
                 <div class="collection-showcase">
                     <div class="collection-image">
-                        <a href="oeuvres.html">
-                            <img src="images/7.jpeg" alt="Nature & Héritage" loading="lazy">
+                        <a href="oeuvres.html?collection=Nature%20%26%20H%C3%A9ritage">
+                            <img src="images/GOUYE GUI" alt="Nature & Héritage" loading="lazy">
                         </a>
                     </div>
                     <div class="collection-details">
                         <h2>4. Nature & Héritage</h2>
                         <p>L'ancrage profond à la terre, l'importance des racines et du majestueux baobab. Cette série illustre la transmission des valeurs et la relation harmonieuse avec l'environnement.</p>
-                        <a href="oeuvres.html" class="btn btn-primary">Découvrir la collection</a>
+                        <a href="oeuvres.html?collection=Nature%20%26%20H%C3%A9ritage" class="btn btn-primary">Découvrir les œuvres</a>
                     </div>
                 </div>
 
                 <!-- Collection 5 -->
                 <div class="collection-showcase">
                     <div class="collection-image">
-                        <a href="oeuvres.html">
-                            <img src="images/2.jpeg" alt="Couleurs & Émotions" loading="lazy">
+                        <a href="oeuvres.html?collection=Couleurs%20%26%20%C3%89motions">
+                            <img src="images/VITAMIN WATERMELON" alt="Couleurs & Émotions" loading="lazy">
                         </a>
                     </div>
                     <div class="collection-details">
                         <h2>5. Couleurs & Émotions</h2>
                         <p>Une explosion de nuances et de techniques, notamment le pointillisme. L'artiste laisse ici la couleur s'exprimer librement pour traduire des émotions intérieures intenses et abstraites.</p>
-                        <a href="oeuvres.html" class="btn btn-primary">Découvrir la collection</a>
+                        <a href="oeuvres.html?collection=Couleurs%20%26%20%C3%89motions" class="btn btn-primary">Découvrir les œuvres</a>
                     </div>
                 </div>
 
@@ -201,6 +212,47 @@
             </div>
         </div>
     </footer>
+
+    <script src="artworks.js"></script>
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('collectionsListContainer');
+            if (!container) return;
+
+            try {
+                if (typeof getCollections === 'function') {
+                    const collections = getCollections();
+                    if (collections && collections.length > 0) {
+                        container.innerHTML = '';
+                        collections.forEach((col, index) => {
+                            const showcase = document.createElement('div');
+                            showcase.className = 'collection-showcase';
+                            const safeTitle = col.title || 'Collection';
+                            const safeDesc = col.description || "Une série poétique explorant les émotions et l'art contemporain de Ngor Diouf.";
+                            const safeImg = col.image || 'images/logo.jpeg';
+                            const safeUrl = 'oeuvres.html?collection=' + encodeURIComponent(safeTitle);
+
+                            showcase.innerHTML = `
+                                <div class="collection-image">
+                                    <a href="${safeUrl}">
+                                        <img src="${safeImg}" alt="${safeTitle}" loading="lazy" onerror="this.src='images/logo.jpeg'">
+                                    </a>
+                                </div>
+                                <div class="collection-details">
+                                    <h2>${index + 1}. ${safeTitle}</h2>
+                                    <p>${safeDesc}</p>
+                                    <a href="${safeUrl}" class="btn btn-primary">Découvrir les œuvres</a>
+                                </div>
+                            `;
+                            container.appendChild(showcase);
+                        });
+                    }
+                }
+            } catch (err) {
+                console.error("Erreur chargement collections:", err);
+            }
+        });
+    </script>
 </body>
 </html>
